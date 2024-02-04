@@ -56,27 +56,6 @@ const isRootPath = computedEager(() => route.name === 'settings')
               to="/settings/language"
               :match="$route.path.startsWith('/settings/language/')"
             />
-            <SettingsItem
-              command
-              icon="i-ri-equalizer-line"
-              :text="isHydrated ? $t('settings.preferences.label') : ''"
-              to="/settings/preferences"
-              :match="$route.path.startsWith('/settings/preferences/')"
-            />
-            <SettingsItem
-              command
-              icon="i-ri-group-line"
-              :text="isHydrated ? $t('settings.users.label') : ''"
-              to="/settings/users"
-              :match="$route.path.startsWith('/settings/users/')"
-            />
-            <SettingsItem
-              command
-              icon="i-ri:information-line"
-              :text="isHydrated ? $t('settings.about.label') : ''"
-              to="/settings/about"
-              :match="$route.path.startsWith('/settings/about/')"
-            />
           </div>
         </MainContent>
       </div>

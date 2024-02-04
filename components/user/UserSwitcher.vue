@@ -22,12 +22,12 @@ function clickUser(user: UserLogin) {
   else
     switchUser(user)
 }
-function processSignIn() {
+/* function processSignIn() {
   if (singleInstanceServer)
     oauth()
   else
     openSigninDialog()
-}
+} */
 </script>
 
 <template>

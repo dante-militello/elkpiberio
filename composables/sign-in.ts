@@ -73,5 +73,9 @@ export function useSignIn(input?: Ref<HTMLInputElement | undefined>) {
     }
   }
 
-  return { busy, displayError, error, server, singleInstanceServer, oauth }
+  async function goRegister() {
+    location.href = 'https://app.piberio.com/auth/sign_up'
+  }
+
+  return { busy, displayError, error, server, singleInstanceServer, oauth, goRegister }
 }

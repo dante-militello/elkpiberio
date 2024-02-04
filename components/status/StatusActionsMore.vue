@@ -50,11 +50,11 @@ async function copyLink(status: mastodon.v1.Status) {
     await clipboard.copy(url)
 }
 
-async function copyOriginalLink(status: mastodon.v1.Status) {
+/* async function copyOriginalLink(status: mastodon.v1.Status) {
   const url = status.url
   if (url)
     await clipboard.copy(url)
-}
+} */
 
 const { share, isSupported: isShareSupported } = useShare()
 async function shareLink(status: mastodon.v1.Status) {
@@ -203,13 +203,6 @@ function showFavoritedAndBoostedBy() {
         />
 
         <CommonDropdownItem
-          :text="$t('menu.copy_original_link_to_post')"
-          icon="i-ri:links-fill"
-          :command="command"
-          @click="copyOriginalLink(status)"
-        />
-
-        <CommonDropdownItem
           v-if="isShareSupported"
           :text="$t('menu.share_post')"
           icon="i-ri:share-line"
@@ -225,14 +218,6 @@ function showFavoritedAndBoostedBy() {
           :disabled="isLoading.muted"
           @click="toggleMute()"
         />
-
-        <NuxtLink v-if="status.url" :to="status.url" external target="_blank">
-          <CommonDropdownItem
-            :text="$t('menu.open_in_original_site')"
-            icon="i-ri:arrow-right-up-line"
-            :command="command"
-          />
-        </NuxtLink>
 
         <template v-if="isHydrated && currentUser">
           <template v-if="isAuthor">
@@ -303,23 +288,6 @@ function showFavoritedAndBoostedBy() {
               :command="command"
               @click="toggleBlockAccount(useRelationship(status.account).value!, status.account)"
             />
-
-            <template v-if="getServerName(status.account) && getServerName(status.account) !== currentServer">
-              <CommonDropdownItem
-                v-if="!useRelationship(status.account).value?.domainBlocking"
-                :text="$t('menu.block_domain', [getServerName(status.account)])"
-                icon="i-ri:shut-down-line"
-                :command="command"
-                @click="toggleBlockDomain(useRelationship(status.account).value!, status.account)"
-              />
-              <CommonDropdownItem
-                v-else
-                :text="$t('menu.unblock_domain', [getServerName(status.account)])"
-                icon="i-ri:restart-line"
-                :command="command"
-                @click="toggleBlockDomain(useRelationship(status.account).value!, status.account)"
-              />
-            </template>
 
             <CommonDropdownItem
               :text="$t('menu.report_account', [`@${status.account.acct}`])"

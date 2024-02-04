@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { env } = useBuildInfo()
+// const { env } = useBuildInfo()
 const router = useRouter()
 const back = ref<any>('')
 
@@ -28,9 +28,8 @@ router.afterEach(() => {
       to="/home"
       @click.prevent="onClickLogo"
     >
-      <NavLogo shrink-0 aspect="1/1" sm:h-8 xl:h-10 class="rtl-flip" />
       <div v-show="isHydrated" hidden xl:block text-secondary>
-        {{ $t('app_name') }} <sup text-sm italic mt-1>{{ env === 'release' ? 'alpha' : env }}</sup>
+        Piberio <sup text-sm italic mt-1>Beta</sup>
       </div>
     </NuxtLink>
     <div

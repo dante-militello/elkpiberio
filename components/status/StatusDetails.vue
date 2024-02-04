@@ -55,14 +55,9 @@ useHydratedHead({
       <div v-if="status.application?.name" aria-hidden="true">
         &middot;
       </div>
-      <div v-if="status.application?.website && status.application.name">
-        <NuxtLink :to="status.application.website">
-          {{ status.application.name }}
-        </NuxtLink>
-      </div>
-      <div v-else-if="status.application?.name">
+      <!-- <div v-else-if="status.application?.name">
         {{ status.application?.name }}
-      </div>
+      </div> -->
     </div>
     <div border="t base" py-2>
       <StatusActions v-if="actions" :status="status" details :command="command" />

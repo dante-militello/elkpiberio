@@ -60,16 +60,9 @@ async function removeUserNote() {
     </button>
 
     <template #popper>
-      <NuxtLink :to="account.url" external target="_blank">
-        <CommonDropdownItem
-          :text="$t('menu.open_in_original_site')"
-          icon="i-ri:arrow-right-up-line"
-          :command="command"
-        />
-      </NuxtLink>
       <CommonDropdownItem
         v-if="isShareSupported"
-        :text="$t('menu.share_account', [`@${account.acct}`])"
+        :text="$t('menu.share_account', [`@${account.displayName}`])"
         icon="i-ri:share-line"
         :command="command"
         @click="shareAccount()"
@@ -187,9 +180,6 @@ async function removeUserNote() {
           </NuxtLink>
           <NuxtLink to="/blocks">
             <CommonDropdownItem :text="$t('account.blocked_users')" icon="i-ri:forbid-2-line" :command="command" />
-          </NuxtLink>
-          <NuxtLink to="/domain_blocks">
-            <CommonDropdownItem :text="$t('account.blocked_domains')" icon="i-ri:shut-down-line" :command="command" />
           </NuxtLink>
         </template>
       </template>

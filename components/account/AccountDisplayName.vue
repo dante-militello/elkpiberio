@@ -8,7 +8,7 @@ const { account, hideEmojis = false } = defineProps<{
 }>()
 
 // Listas de usernames verificados
-const verificados = ['dasdasdsadada', 'dzor']
+const verificados = ['dantezor', 'dzor']
 const donadores = ['dasdsdsdsad', 'dzor1']
 
 // URLs de las imágenes de verificado alojadas en Imgur
